@@ -51,17 +51,20 @@ function curl_get($url, $get)
 }
 
 $input = $_GET['input'];
+$input = strtolower($input);
 $assumption = $_GET['assumption'];
 $cache_file = "cache/" . urlencode($input . '.' . $assumption);
 
-if (file_exists($cache_file)) {
-    $existing = file_get_contents($cache_file);
-    echo $existing;
-} else {
+function do_query($query)
+{
+    global $WOLFRAM_APPID;
+    global $assumption;
+
     $url = 'http://api.wolframalpha.com/v2/query';
     $params = array(
         appid => $WOLFRAM_APPID,
-        input => $input,
+        input => $query,
+        format => 'plaintext',
         podstate => array(
             'Location:CityData__Show coordinates',
             'Location:NuclearReactorData__Show coordinates',
@@ -76,6 +79,15 @@ if (file_exists($cache_file)) {
         $params['assumption'] = $assumption;
     
     $response = curl_get($url, $params);
+    
+    return $response;
+}
+
+if (file_exists($cache_file)) {
+    $existing = file_get_contents($cache_file);
+    echo $existing;
+} else {
+    $response = do_query($input);
     
     echo $response;
     
