@@ -249,6 +249,8 @@ $(document).ready(function() {
 	    	      	callback(true, marker, positions);
 	      		});
 	      	})
+    			if (left <= 0 && callback)
+  	      	callback(true, marker, positions);
 	      }
 	      else if (callback)
 	      	callback(true, marker, positions);
@@ -267,7 +269,7 @@ $(document).ready(function() {
   		marker.setMap(null);
   	})
   	markers = [];
-  	query($('#search').val(), '', '#FF9D27', 1, function(success, marker, positions) {
+  	query($('#search').val(), '', '#FF4122', 1, function(success, marker, positions) {
   		if (success) {
 	  		var bounds = new google.maps.LatLngBounds();
 	  		$(positions).each(function(index, pos) {
