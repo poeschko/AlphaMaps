@@ -1,6 +1,6 @@
 This is a mashup of the Wolfram|Alpha (http://www.wolframalpha.com/) API (http://products.wolframalpha.com/api/) with the Google Maps API (https://developers.google.com/maps/documentation/javascript/) to show the locations of entries related to Wolfram|Alpha queries.
 
-The Wolfram|Alpha API works server-side only as it doesn't set the HTTP Access-Control-Allow-Origin header, so accessing it directly from any modern browser will violate the same-origin policy and thus fail. Therefore, there is a thin PHP wrapper in the server directory. See server/config.php for how to set up your server.
+The Wolfram|Alpha API works server-side only as it doesn't set the HTTP Access-Control-Allow-Origin header, so accessing it directly from any modern browser will violate the same-origin policy and thus fail. Therefore, there is a thin PHP wrapper in the server directory. See server/config.php for how to set up your server. Additionaly, the URL of your server has to be set in scripts/alphamaps.js.
 
 This project contains StyledMarker by Gabriel Schneider, released under the Apache License, Version 2.0.
 

@@ -1,4 +1,4 @@
-(function() {
+(function() { // module closure
 /*
  * SETUP:
  * Point QUERY_URL to your server.
@@ -184,11 +184,6 @@ $(document).ready(function() {
 	      	map: map
 	      });
 	      markers.push(marker);
-      	/*var marker = new google.maps.Marker({
-	      	position: new google.maps.LatLng(info.info.location[0], info.info.location[1]),
-      		map: map,
-      		visible: true
-      	})*/
 	      google.maps.event.addListener(marker, 'click', function() {
 	      	if (openWindow)
 	      		openWindow.close();
