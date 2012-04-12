@@ -11,15 +11,22 @@
 </head>
 <body>
     <div id="map_canvas"></div>
+    <div id="welcome">
+        <p>Welcome to Alpha Maps!</p>
+        <p>Search for a city and get a map of the things <a href="http://www.wolframalpha.com">Wolfram|Alpha</a> relates to it.</p>
+        <p>Examples: <a href="javascript:example('San Francisco')">San Francisco</a> &ndash; <a href="javascript:example('Champaign')">Champaign</a> &ndash; <a href="javascript:example('Graz')">Graz</a></p>
+    </div>
     <div id="search_box">
         <form id="search_form" action="#" method="post">
             <input id="search" type="text" />
             <a href="javascript:submit()" id="submit">=</a>
+            <img id="loading" src="images/loading.gif" alt="Loading" width="32" height="32" style="display: none" />
         </form>
         <div id="about">
             Created by <a href="http://www.poeschko.com">Jan Pöschko</a> &mdash;
-            Powered by <a href="http://www.wolframalpha.com">Wolfram|Alpha</a>
+            Powered by (but not affiliated to) <a href="http://www.wolframalpha.com">Wolfram|Alpha</a>
         </div>
     </div>
+    <div id="noresults" style="display: none">Sorry, there's no location available for this query.</div>
 </body>
 </html>

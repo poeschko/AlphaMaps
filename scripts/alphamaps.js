@@ -133,6 +133,14 @@ $(document).ready(function() {
 		        	})	        		
 	        	});
 	        }
+	        else if (podTitle == "Nearby hospitals" || podTitle == "Nearby hospital") {
+	        	$(table).each(function(index, row) {
+		        	nearby.push({
+		        		type: 'hospital',
+		        		name: row[0]
+		        	})	        		
+	        	});
+	        }
 	        var tableElmt = E('table');
 	        for (var rowIdx = 0; rowIdx < table.length; ++rowIdx) {
 	        	row = table[rowIdx];
@@ -204,24 +212,32 @@ $(document).ready(function() {
 	      		var assumption = '';
 	      		switch (nearby.type) {
 	      		case 'city':
-	      			color = '#FF0000';
+	      			color = '#FF9D27';
 	      			assumption = 'City';
 	      			break;
 	      		case 'nuclear power site':
-	      			color = '#00FF00';
+	      			color = '#ADDE4E';
 	      			assumption = 'NuclearReactor';
 	      			break;
 	      		case 'mountain':
-	      			color = '#663300';
+	      			color = '#A8877E';
 	      			assumption = 'Mountain';
 	      			break;
+	      		case 'waterfall':
+	      			color = '#ADCCD9';
+	      			assumption = 'Waterfall';
+	      			break;
 	      		case 'dam':
-	      			color = '#0000FF';
+	      			color = '#7893AD';
 	      			assumption = 'Dam';
 	      			break;
 	      		case 'airport':
-	      			color = '#FFFF00';
+	      			color = '#FFFFB1';
 	      			assumption = 'Airport';
+	      			break;
+	      		case 'hospital':
+	      			color = '#A62A16';
+	      			assumption = 'Hospital';
 	      			break;
 	      		}
 	      		query(nearby.name, assumption, color, recurse - 1, function(success, newMarker, newPositions) {
@@ -243,21 +259,36 @@ $(document).ready(function() {
   }
 
   $('#search_form').submit(function() {
+  	$('#welcome').hide();
+  	$('#noresults').hide();
+  	$('#submit').hide();
+  	$('#loading').show();
   	$(markers).each(function(index, marker) {
   		marker.setMap(null);
   	})
   	markers = [];
-  	query($('#search').val(), '', '#FFA600', 1, function(success, marker, positions) {
-  		var bounds = new google.maps.LatLngBounds();
-  		$(positions).each(function(index, pos) {
-  			bounds.extend(pos);
-  		})
-  		marker.setZIndex(10000);
-  		map.fitBounds(bounds);
+  	query($('#search').val(), '', '#FF9D27', 1, function(success, marker, positions) {
+  		if (success) {
+	  		var bounds = new google.maps.LatLngBounds();
+	  		$(positions).each(function(index, pos) {
+	  			bounds.extend(pos);
+	  		})
+	  		marker.setZIndex(10000);
+	  		map.fitBounds(bounds);
+	  		google.maps.event.trigger(marker, 'click');
+  		} else {
+  			$('#noresults').show();
+  		}
+  		$('#loading').hide();
+  		$('#submit').show();
   	}, function(marker) {
   		map.setCenter(marker.getPosition());
   	});
     return false;
+  })
+  
+  $(window).ready(function() {
+  	$('#search').focus();
   })
 })
 
@@ -265,4 +296,9 @@ $(document).ready(function() {
 
 function submit() {
   $('#search_form').submit();
+}
+
+function example(input) {
+	$('#search').val(input);
+	$('#search_form').submit();
 }
