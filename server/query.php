@@ -68,7 +68,7 @@ if (file_exists($cache_file)) {
             'Location:MountainData__Show coordinates',
             'Location:WaterfallData__Show coordinates',
             'Location:DamData__Show coordinates',
-            'Location:AirportData__Show coordinates'
+            'Location:AirportData__Show coordinates',
             'Location:HospitalData__Show coordinates'
         )
     );
