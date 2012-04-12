@@ -1,0 +1,77 @@
+html {
+    height: 100%;
+}
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+#map_canvas {
+    width: 100%;
+    height: 100%;
+}
+#search_box {
+    position: absolute;
+    width: 50%;
+    height: 6em;
+    left: 25%;
+    top: 1em;
+    background-color: orange;
+    background-color: rgba(255,160,0,.75);
+    border-radius: .5em;
+}
+#search {
+    width: 92%;
+    font-size: 2em;
+    margin-left: 4%;
+    margin-top: .5em;
+    height: 1.5em;
+}
+#submit {
+    position: absolute;
+    top: 1.5em;
+    right: 6%;
+    background-color: orange;
+    color: white;
+    width: 2em;
+    height: 2em;
+    font-size: 1em;
+    text-decoration: none;
+    border-radius: .5em;
+    line-height: 2em;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#about {
+    margin-top: -.5em;
+    font-size: 0.9em;
+    color: white;
+    margin-left: 4%;
+    padding-bottom: .5em;
+    text-align: center;
+    font-family: sans-serif;
+}
+
+#about a {
+    color: white;
+    text-decoration: underline;
+}
+
+.info {
+    max-height: 150px;
+    max-width: 350px;
+    overflow: auto;
+    font-size: 0.75em;
+    font-family: sans-serif;
+}
+
+.info h2 {
+    font-size: 1.2em;
+    margin-top: 0.5em;
+    margin-bottom: 0;
+}
+
+.info table {
+    font-size: 1em;
+}
