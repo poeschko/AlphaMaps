@@ -15,8 +15,6 @@ body {
 
 #noresults {
     position: absolute;
-    /*width: 50%;
-    height: 2em;*/
     left: 25%;
     top: 1em;
     background-color: orange;
@@ -43,19 +41,14 @@ body {
     position: absolute;
     top: 1em;
     left: 25%;
-    /*width: 50%;*/
     background-color: orange;
     background-color: rgba(255,160,0,.75);
-    /*border-top-left-radius: .5em;
-    border-top-right-radius: .5em;*/
     border-radius: .5em;
     padding: .5em;
     color: #333;
     font-family: sans-serif;
     width: 50%;
     text-align: center;
-    /*border-bottom: 2px solid white;
-    border-bottom: 2px solid rgba(255,255,255,0.5);*/
 }
 
 #welcome p {
@@ -93,11 +86,16 @@ body {
     right: 6%;
 }
 
+#welcome p.about {
+    font-size: 0.75em;
+    color: #333;
+    margin-top: 1em;
+}
+
 #about {
     margin-top: -.5em;
     font-size: 0.75em;
     color: #333;
-    /*margin-left: 4%;*/
     padding-bottom: .5em;
     text-align: center;
     font-family: sans-serif;
