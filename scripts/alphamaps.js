@@ -17,16 +17,20 @@ function strip(str) {
 	return str;
 }
 
-function E(tag, className, children) {
+function E(tag, className, children, attr) {
   var elmt = document.createElement(tag);
   if (String(className) === className)
     $(elmt).addClass(className);
-  else
+  else {
+  	attr = children;
   	children = className;
+  }
   if (children)
 	  for (var i = 0; i < children.length; ++i) {
 	  	elmt.appendChild(children[i]);
 	  }
+  if (attr)
+  	$(elmt).attr(attr);
   return elmt;
 }
 
@@ -43,7 +47,7 @@ $(document).ready(function() {
 		var myOptions = {
 	    center: new google.maps.LatLng(0, 0),
 	    zoom: 2,
-	    mapTypeId: google.maps.MapTypeId.ROADMAP
+	    mapTypeId: google.maps.MapTypeId.TERRAIN
 		};
 		map = new google.maps.Map(document.getElementById("map_canvas"),
 		   myOptions);
@@ -87,12 +91,14 @@ $(document).ready(function() {
   
   function createInfo(data) {
     var container = E('div', 'info');
+    var pods = E('div', 'pods');
     var info = {};
     var nearby = [];
     $(data).find('pod').each(function(index, pod) {
       var podDiv = E('div', 'pod');
       var podTitle = $(pod).attr('title');
       podDiv.appendChild(E('h2', [T(podTitle)]));
+      var hasSubpods = false;
       $(pod).find('subpod').each(function(index, subpod) {
         var textNode = $(subpod).find('plaintext').contents()[0];
         if (!textNode)
@@ -100,6 +106,7 @@ $(document).ready(function() {
         var table = plainTable(textNode.data);
         if (table.length > 0 && table[0].length > 0 && table[0][0]) {
 	        var subpodDiv = E('div', 'subpod');
+	        hasSubpods = true;
 	        if (podTitle == "Input interpretation") {
 	        	info.title = table[0][0];
 	        	info.shortTitle = info.title.split(',')[0].split('(')[0];
@@ -153,8 +160,11 @@ $(document).ready(function() {
 	        podDiv.appendChild(subpodDiv);
         }
       })
-      container.appendChild(podDiv);
+      if (hasSubpods)
+      	pods.appendChild(podDiv);
     })
+    container.appendChild(pods);
+    container.appendChild(E('div', 'note', [T("Data provided by "), E('a', [T("Wolfram|Alpha")], {'href': "http://www.wolframalpha.com"})]));
     var newNearby = [];
     $(nearby).each(function(index, item) {
     	if (item.name) {
@@ -303,4 +313,9 @@ function submit() {
 function example(input) {
 	$('#search').val(input);
 	$('#search_form').submit();
+}
+
+function terms() {
+	$('#terms').toggle();
+	$('#search_container').toggleClass('terms');
 }

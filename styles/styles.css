@@ -28,26 +28,60 @@ body {
 
 #search_box {
     position: absolute;
-    width: 50%;
-    height: 6em;
-    left: 25%;
+    width: 60%;
+    left: 20%;
     bottom: 1em;
-    background-color: orange;
-    background-color: rgba(255,160,0,.75);
     border-radius: .5em;
+}
+
+#search_container {
+    border-radius: .5em;
+}
+
+#search_container.terms {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+#search_container,
+#terms {
+    padding-left: 4%;
+    padding-right: 4%;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    background-color: orange;
+    background-color: rgba(255,160,0,.75); 
+}
+
+#terms {
+    background-color: white;
+    background-color: rgba(255,255,255,.75);
+    border-bottom-left-radius: .5em;
+    border-bottom-right-radius: .5em;
+    font-size: 0.75em;
+    font-family: sans-serif;
+    color: #333;
+}
+
+#terms p {
+    margin-top: .5em;
+}
+
+#terms a {
+    color: #333;
 }
 
 #welcome {
     position: absolute;
     top: 1em;
-    left: 25%;
+    left: 20%;
     background-color: orange;
     background-color: rgba(255,160,0,.75);
     border-radius: .5em;
     padding: .5em;
     color: #333;
     font-family: sans-serif;
-    width: 50%;
+    width: 60%;
     text-align: center;
 }
 
@@ -57,10 +91,8 @@ body {
 }
 
 #search {
-    width: 92%;
+    width: 100%;
     font-size: 2em;
-    margin-left: 4%;
-    margin-top: .5em;
     height: 1.5em;
 }
 
@@ -96,7 +128,7 @@ body {
     margin-top: -.5em;
     font-size: 0.75em;
     color: #333;
-    padding-bottom: .5em;
+    /*padding-bottom: .5em;*/
     text-align: center;
     font-family: sans-serif;
 }
@@ -108,11 +140,15 @@ body {
 }
 
 .info {
-    max-height: 150px;
-    max-width: 350px;
-    overflow: auto;
     font-size: 0.75em;
     font-family: sans-serif;
+}
+
+.pods {
+    max-height: 200px;
+    max-width: 350px;
+    overflow: auto;
+    border-bottom: 1px solid #ccc;
 }
 
 .info h2 {
@@ -123,4 +159,13 @@ body {
 
 .info table {
     font-size: 1em;
+}
+
+.note {
+    margin-top: .5em;
+    color: #333;
+}
+
+.note a {
+    color: #333;
 }

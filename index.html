@@ -18,14 +18,24 @@
         <p class="about"><a href="https://github.com/poeschko/AlphaMaps">Code on github</a> &ndash; <a href="http://www.poeschko.com/2012/04/alpha-maps-a-mashup-of-wolframalpha-and-google-maps/">Short introduction</a></p>
     </div>
     <div id="search_box">
-        <form id="search_form" action="#" method="post">
-            <input id="search" type="text" />
-            <a href="javascript:submit()" id="submit">=</a>
-            <img id="loading" src="images/loading.gif" alt="Loading" width="32" height="32" style="display: none" />
-        </form>
-        <div id="about">
-            Created by <a href="http://www.poeschko.com">Jan Pöschko</a> &ndash;
-            Powered by (but not affiliated to) <a href="http://www.wolframalpha.com">Wolfram|Alpha</a>
+        <div id="search_container">
+            <form id="search_form" action="#" method="post">
+                <input id="search" type="text" />
+                <a href="javascript:submit()" id="submit">=</a>
+                <img id="loading" src="images/loading.gif" alt="Loading" width="32" height="32" style="display: none" />
+            </form>
+            <div id="about">
+                Created by <a href="http://www.poeschko.com">Jan&nbsp;Pöschko</a> &ndash;
+                Powered&nbsp;by (but&nbsp;not&nbsp;affiliated&nbsp;to) <a href="http://www.wolframalpha.com">Wolfram|Alpha</a> &ndash;
+                <a href="javascript:terms()">Terms&nbsp;of&nbsp;Use</a>
+            </div>
+        </div>
+        <div id="terms" style="display: none">
+            <p>Alpha Maps is a project by <a href="http://www.poeschko.com">Jan Pöschko</a> that is in no ways affiliated to or endorsed by <a href="http://www.wolframalpha.com">Wolfram|Alpha</a>. All data is provided by the <a href="http://www.wolframalpha.com">Wolfram|Alpha</a> API. Maps are from <a href="http://maps.google.com">Google Maps</a>.</p>
+            <p>Results and information from this site are not a certified or definitive source of information that can be relied on for legal, financial, medical, life-safety, or any other critical purposes.</p>
+            <p>Additionally, <a href="http://www.wolframalpha.com/termsofuse/">Wolfram|Alpha's Terms of Use</a> apply.</p>
+            <p>By using Alpha Maps, you agree to these Terms of Use.</p>
+            <p><a href="javascript:terms()">(Close)</a></p>
         </div>
     </div>
     <div id="noresults" style="display: none">Sorry, there's no location available for this query.</div>
