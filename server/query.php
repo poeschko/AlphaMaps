@@ -51,7 +51,7 @@ function curl_get($url, $get)
 }
 
 $input = $_GET['input'];
-$input = strtolower($input);
+$input = strtolower(trim($input));
 $assumption = $_GET['assumption'];
 $cache_file = "cache/" . urlencode($input . '.' . $assumption);
 
